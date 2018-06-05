@@ -1,8 +1,18 @@
 <?php
 class Ahorcado {
-		$MAX_ATTEMPS = 7;
+	
+	$MAX_ATTEMPS = 7;
 	$WORLDLISTFILE = "worldlist.txt"
 
+	//Variables globales que se vana utilizar
+	$answer;
+	$userInput;
+	$userAttempts;
+	
+	//No estoy seguro si hidden necesita ser variable global
+	//$hidden 
+	
+	//Comienza el juego
 	function __construct()
 	{
 		$file = fopen($wordFile, "r"); //Abre el txt con las palabras
@@ -33,7 +43,9 @@ class Ahorcado {
 		
 	}
 	
-	function hide_characters($answer)
+	//Utiliza: $answer
+	//Devuelve una sucesion de '_' del mismo tamano que la palabra escogida
+	function hide_characters()
 	{
 		$hidden = $answer;
 		$count = 0;
@@ -43,10 +55,13 @@ class Ahorcado {
 			$hidden[$count] = '_';
 			$count++;
 		}
-		return $hidden; //Devuelve una sucesion de '_' del mismo tamano que la palabra escogida
+		return $hidden; 
 	}
 	
-	function checkAndReplace($userInput, $hidden, $answer)
+	//Utiliza: $userInput, $hidden, $answer
+	//Revisa si la letra que haya ingresado el usuario 
+	//es valida, y modifica $hidden segun esto
+	function checkAndReplace() 
 	{
 		$i = 0;
 		$wrongGuess = true;
@@ -66,7 +81,9 @@ class Ahorcado {
 		return $hidden;
 	}
 	
-	function checkGameOver($MAX_ATTEMPTS, $userAttempts, $answer, $hidden)
+	//Utiliza $MAX_ATTEMPTS, $userAttempts, $answer, $hidden
+	//Revisa si el juego se terminó, si ganó o perdió
+	function checkGameOver()
 	{
 		if($userAttempts >= $MAX_ATTEMPTS) //Superó la cantidad maxima de intentos
 		{
