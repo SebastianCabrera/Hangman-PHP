@@ -4,15 +4,15 @@ class Ahorcado {
 	$MAX_ATTEMPS = 7;
 	$WORLDLISTFILE = "worldlist.txt"
 
-	//Variables globales que se vana utilizar
-	$answer;
-	$userInput;
-	$userAttempts;
+	//Variables globales que se van a utilizar
+	$answer = "";
+	$userInput = "";
+	$userAttempts = 0;
 	
-	//No estoy seguro si hidden necesita ser variable global
-	//$hidden 
+	//No estoy seguro si $hidden necesita ser variable global
 	
-	//Comienza el juego
+	//Comienza el juego asignandole a $answer la lista con las letras 
+	//de la palabra escogida
 	function __construct()
 	{
 		$file = fopen($wordFile, "r"); //Abre el txt con las palabras

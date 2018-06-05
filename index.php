@@ -5,9 +5,26 @@
 	</head>
 	
 	<body>
+	
 		<?php
-			include 'config.php';
 			include 'funciones.php';
+			//Hay que hacerlo sin usar los $_SESSION
+			
+			if(isset($POST['userInput'])) //Si el usuario ha hecho un intento
+				{
+					$userInput = $_POST['userInput']; //Se asigna el intetnto del usuario a $userInput
+					//Se revisa si el valor ingresado es correcto
+					$hidden = checkAndReplace(strtolower($userInput), $hidden, $answer)
+					//$hidden = checkAndReplace(strtolower($userInput), $_SESSION['hidden'], $_SESSION['answer']);
+					checkGameOver($MAX_ATTEMPS, $_SESSION['attempts'], $_SESSION['answer'], $_SESSION['hidden']);
+				}
+			$_SESSION['attempts'] = $_SESSION['attempts'] +1;
+			echo 'Attempts remaining: '.($MAX_ATTEMPS-$_SESSION['attempts']).'<br>';
+		?>
+	
+	
+	
+		<?php
 			if(isset($_SESSION['newWord'])) //Se pide una nueva palabra
 			{
 				unset($_SESSION['answer']);
