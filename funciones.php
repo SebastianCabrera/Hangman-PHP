@@ -1,13 +1,13 @@
 <?php
 class Ahorcado {
 	
-	$MAX_ATTEMPS = 7;
-	$WORLDLISTFILE = "worldlist.txt"
+	public $MAX_ATTEMPS = 7;
+	public $WORLDLISTFILE = "worldlist.txt";
 
 	//Variables globales que se van a utilizar
-	$answer = "";
-	$userInput = "";
-	$userAttempts = 0;
+	public $answer = "";
+	public $userInput = "";
+	public $userAttempts = 0;
 	
 	//No estoy seguro si $hidden necesita ser variable global
 	
@@ -95,7 +95,7 @@ class Ahorcado {
 			}
 			//echo '<br><form action="" method="post"><input type="submit" name="newWord" value="Try Another Word"></form><br>';
 			$this->attempts = 0;
-			return (false, $word);
+			//return (false, $word);
 		}
 		if($hidden==$answer)
 		{
@@ -109,5 +109,6 @@ class Ahorcado {
 			die;
 		}
 	}
+  }	
 	
 ?>

@@ -14,12 +14,12 @@
 				{
 					$userInput = $_POST['userInput']; //Se asigna el intetnto del usuario a $userInput
 					//Se revisa si el valor ingresado es correcto
-					$hidden = checkAndReplace(strtolower($userInput), $hidden, $answer)
+					$hidden = checkAndReplace(strtolower($userInput), $hidden, $answer);
 					//$hidden = checkAndReplace(strtolower($userInput), $_SESSION['hidden'], $_SESSION['answer']);
 					checkGameOver($MAX_ATTEMPS, $_SESSION['attempts'], $_SESSION['answer'], $_SESSION['hidden']);
 				}
 			$_SESSION['attempts'] = $_SESSION['attempts'] +1;
-			echo 'Attempts remaining: '.($MAX_ATTEMPS-$_SESSION['attempts']).'<br>';
+			echo 'Attempts remaining: '.($MAX_ATTEMPS - $_SESSION['attempts']).'<br>';
 		?>
 	
 	
