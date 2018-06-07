@@ -13,17 +13,16 @@
 </html>
 
 <?php
-	//No se pueden usar variables globales en vez de usar $_SESSION?
 	//Se podrá acomodar en forma de funciones para que sea más manejable?
 	//Voy a ver si se puede llamar a este archivo 'index' y que comience desde aquí
 	//	|->La parte de un menú se podría agregar en Visual
+	//Que se devuelva la hilera escondida
     session_start();    
     
+	//El de iniciar el juego no lo voy a hacer una funcion
     if ($_SESSION['primeravez']){
         //Numero de intentos de usuario
         $_SESSION['intentos'] = -1;
-		//(IGNORAR)Esto es por si se quiere jugar con una palabra que uno ingrese
-		//$_SESSION['palabraingresada'] = $_POST['palabra'];  
 		//El .txt con las palabras
         $contenido = file("palabras.txt");
         $linea_azar = $contenido[rand(0, count($contenido) - 1)];
@@ -38,10 +37,14 @@
         //Letras que se pueden usar como intento valido
         $_SESSION['permitidos'] = " -abcdefghijklmnopqrstuvwxyz";
         
+		$_SESSION['ahorcado'] = hidden();
+		
+		/*
 		//Hilera de '_' del tamano de la palabra escogida
         for ($i = 0; $i < $_SESSION['longitud']; $i++){
             $_SESSION['ahorcado'][$i] = '_';
         }
+		*/
         $_POST['letra'] = ' ';
         $_SESSION['primeravez'] = false;
     }
@@ -71,7 +74,10 @@
     if ($indicadorLetraPermitida == true && $_SESSION['letra'] != '-'){
         $_SESSION['LetraIngresada'][] = $_SESSION['letra'];
     }
+	
+	$indicadorIntentos = checkAndReplace();
     
+	/*
 	//Si la letra esta en la palabra, se sustituye en la hilera de '_'
     $indicadorIntentos = false;
     for ($i = 0; $i < $_SESSION['longitud']; $i++){
@@ -80,6 +86,7 @@
             $indicadorIntentos = true;
         }
     }
+	*/
     
 	//Se verifica que la letra no haya sido ingresada antes
     $contadorLetras = 0;   
@@ -104,6 +111,8 @@
         $_SESSION['intentos'] ++;
     }
     
+	checkGameOver();
+	/*
 	//Verifica si ya se gano el juego
     $aux = 0;
     for ($j=0; $j<$_SESSION['longitud']; $j++){
@@ -163,8 +172,10 @@
             }
         ?>
     </p>
-</html>    
+</html>  
+  
 <?php
+*/
 	//La imagen que se muestra dependiendo del numero de intentos
     switch ($_SESSION['intentos']){
         case 0:
@@ -209,5 +220,91 @@
                 window.location = "http://www.google.com";
             }
         </script>';
-    }  
+    }
+	
+	function hidden()
+	{
+		$ahorcado = $_SESSION['palabraingresada']; //Para el tamano
+		for ($i = 0; $i < $_SESSION['longitud']; $i++){
+            //$_SESSION['ahorcado'][$i] = '_';
+			$ahorcado[$i] = '_';
+        }
+		return $ahorcado;
+	}
+	
+	function checkAndReplace()
+	{
+		$indicadorIntentos = false;
+		for ($i = 0; $i < $_SESSION['longitud']; $i++){
+			if ($_SESSION['palabraingresada'][$i] == $_SESSION['letra']){
+				$_SESSION['ahorcado'][$i] = $_SESSION['letra'];
+				$indicadorIntentos = true;
+			}
+		}
+		return $indicadorIntentos;
+	}
+	
+	function checkGameOver()
+	{
+		$aux = 0;
+		for ($j=0; $j<$_SESSION['longitud']; $j++){
+			if ($_SESSION['palabraingresada'][$j] == $_SESSION['ahorcado'][$j]){
+				$aux++;
+			}
+		}    
+		if ($aux == $_SESSION['longitud']){
+			echo '<br>';
+			?>
+			<html>
+				<p align="center">
+				<!--Si se gana el juego se imprime la palabra encontrada-->
+					<?php 
+						for ($k=0; $k<$_SESSION['longitud']; $k++){        
+							echo $_SESSION['ahorcado'][$k] . ' ';
+						}
+					?>
+				</p>
+			</html>
+			<?php
+			echo '<script type = "text/javascript">
+				alert("FELICIDADES!! HA GANADO!!");
+			</script>';
+			mensajeJugarNuevamente();
+		}
+		
+		//Se verifica si ha perdido el juego
+		if ($_SESSION['intentos'] == 9){
+			echo '<img src="imagenes/9.png">';
+			sleep(0.2);
+			echo '<br>';
+			?>
+			<html>
+				<p align="center">
+					<?php 
+						for ($k=0; $k<$_SESSION['longitud']; $k++){        
+							echo $_SESSION['palabraingresada'][$k] . ' ';
+						}
+					?>
+				</p>
+			</html>
+	<?php
+		echo '<script type = "text/javascript">
+			alert("HA PERDIDO");;
+		</script>';
+		mensajeJugarNuevamente();
+		}else{
+			echo '<p align="center">Lleva ' . $_SESSION['intentos'] . '  intentos fallidos</p>';
+		}
+	?>
+	<html>
+		<p align="center">
+			<?php 
+				for ($k=0; $k<$_SESSION['longitud']; $k++){        
+					echo $_SESSION['ahorcado'][$k] . ' ';
+				}
+			?>
+		</p>
+	</html>    
+	<?php
+	}
 ?>
