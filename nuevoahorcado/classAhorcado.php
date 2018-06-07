@@ -17,7 +17,7 @@
 		  $this->permitidos = " -abscdefghijklmnopqrstuvwxyz";
 
 	  }
-	  function inciarJuego(){
+	  function iniciarJuego(){
 		  $contenido = file("palabras.txt");
 			$linea_azar = $contenido[rand(0, count($contenido) - 1)];
 			$linea_azar = trim($linea_azar);

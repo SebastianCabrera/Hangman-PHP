@@ -16,7 +16,7 @@
   //if($juego->intentos==0) {
 	 
 	  $juego = new Ahorcado;
-	  $juego->inciarJuego();
+	  $juego->iniciarJuego();
   
       if($juego->mostrarAhorcado('v')){
 		  echo 'true';
