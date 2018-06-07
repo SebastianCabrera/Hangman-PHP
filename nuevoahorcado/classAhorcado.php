@@ -24,7 +24,6 @@ class Ahorcado{
 		$this->intentos=0;
 		$this->palabra ='verde'; 
 		$this->letra='';
-		$this->ahorcado;
 		$this->longitud=0;
 		$this->permitidos = " -abscdefghijklmnopqrstuvwxyz";
 		$this->letrasIngresadas = array();
@@ -39,16 +38,15 @@ class Ahorcado{
 		//Palabra elegida
 		$this->palabra= $linea_azar;
 		$this->longitud= strlen($this->palabra);
-		//$_POST['letra'] = '';
-		//$_SESSION['primeravez'] = false;
+		
 	}
 	
 	//Devuelve la palabra escondida inicial
 	function palabraEscondida()
 	{
-		$ahorcado = array();
+		$ahorcado = '';
 		for ($i = 0; $i < $this->longitud; $i++){
-			$this->ahorcado[$i] = '_';
+			$ahorcado[$i] = '_';
 		}
 		return $ahorcado;
 	}
@@ -75,8 +73,8 @@ class Ahorcado{
 			}
 		}
 		
-		if(	$checkRepetido2 == false && $indicadorIntentos==true && !checkEmpty() && 
-			checkLetter()  && $this->letra != '-')
+		if(	$checkRepetido2 == false && $indicadorIntentos==true && $this->checkEmpty() == false && 
+			$this->checkLetter() == true && $this->letra != '-')
 		{
 			$this->intentos++;
 		}
@@ -94,16 +92,6 @@ class Ahorcado{
 		return 'Lleva '.$this->intentos;
 	}
 	
-	function algo()
-	{
-		<?php 
-					for ($k=0; $k<$this->longitud; $k++){        
-						echo $this->ahorcado[$k] . ' ';
-					}
-				?>
-				
-				$mensajeRetorno = 'Lleva '  .  $this->intentos . '  intentos';
-	}
 	
 	function verificarResultadoDeJuego($ahorcado)
 	{
@@ -126,6 +114,7 @@ class Ahorcado{
 			}
 			$mensajeRetorno = "Felicidades";
 			$this->finDelJuego = true;
+			return $mensajeRetorno;
 		}
 		
 		//Se verifica si ha perdido el juego
@@ -136,7 +125,10 @@ class Ahorcado{
 			}
 			$mensajeRetorno = "Perdiste";
 			$this->finDelJuego = true;
+			return $mensajeRetorno;
 		}
+		
+		return '';
 	} //Fin de checkGameOver
 	  
 	
@@ -185,7 +177,10 @@ class Ahorcado{
 		return $indicadorLetraIn; //Debe ser false
 	}
 	
-	
+	function getPalabra()
+	{
+		return $this->palabra;
+	}
 	  
 	function getfinDelJuego()
 	{
