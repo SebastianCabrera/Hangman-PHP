@@ -27,6 +27,7 @@
 	
 	<message name="verificarLetraIn">
 		<part name="nombre" type="xsd:string"/>
+		<part name="nombre" type="xsd:string"/>
 	</message>
 
 	<message name="verificarLetraOut">

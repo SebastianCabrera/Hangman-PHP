@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:ECCI_Ahorcado" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="ECCI_Ahorcado" targetNamespace="urn:ECCI_Ahorcado" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:ECCI_Ahorcado" />
+  </wsdl:types>
+  <wsdl:message name="iniciarJuegoIn" />
+  <wsdl:message name="iniciarJuegoOut" />
+  <wsdl:message name="palabraEscondidaIn" />
+  <wsdl:message name="palabraEscondidaOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verificarLetraIn">
+    <wsdl:part name="nombre" type="xsd:string" />
+    <wsdl:part name="nombre2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verificarLetraOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getIntentosIn" />
+  <wsdl:message name="getIntentosOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verificarResultadoDeJuegoIn">
+    <wsdl:part name="nombre" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="verificarResultadoDeJuegoOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkEmptyIn" />
+  <wsdl:message name="checkEmptyOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkLetterIn" />
+  <wsdl:message name="checkLetterOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkRepeatedIn" />
+  <wsdl:message name="checkRepeatedOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPalabraIn" />
+  <wsdl:message name="getPalabraOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="ECCI_AhorcadoPort">
+    <wsdl:operation name="iniciarJuego">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:iniciarJuegoIn" />
+      <wsdl:output message="tns:iniciarJuegoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="palabraEscondida">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:palabraEscondidaIn" />
+      <wsdl:output message="tns:palabraEscondidaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verificarLetra">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:verificarLetraIn" />
+      <wsdl:output message="tns:verificarLetraOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIntentos">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:getIntentosIn" />
+      <wsdl:output message="tns:getIntentosOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verificarResultadoDeJuego">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:verificarResultadoDeJuegoIn" />
+      <wsdl:output message="tns:verificarResultadoDeJuegoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkEmpty">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:checkEmptyIn" />
+      <wsdl:output message="tns:checkEmptyOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkLetter">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:checkLetterIn" />
+      <wsdl:output message="tns:checkLetterOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkRepeated">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:checkRepeatedIn" />
+      <wsdl:output message="tns:checkRepeatedOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPalabra">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:getPalabraIn" />
+      <wsdl:output message="tns:getPalabraOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ECCI_AhorcadoBinding" type="tns:ECCI_AhorcadoPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="iniciarJuego">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#iniciarJuego" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="palabraEscondida">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#palabraEscondida" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificarLetra">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#verificarLetra" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIntentos">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#getIntentos" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verificarResultadoDeJuego">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#verificarResultadoDeJuego" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkEmpty">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#checkEmpty" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLetter">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#checkLetter" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRepeated">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#checkRepeated" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPalabra">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#getPalabra" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ECCI_AhorcadoService">
+    <wsdl:port name="ECCI_AhorcadoPort" binding="tns:ECCI_AhorcadoBinding">
+      <soap:address location="http://titanic.ecci.ucr.ac.cr:80/~eb41188/Ahorcado/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
