@@ -16,7 +16,7 @@ class Ahorcado{
 	//Lista de letras ingresadas para evitar que se repitan
 	public $letrasIngresadas;
 	//Define si el juego termino
-	public $finDelJuego;
+	//public $finDelJuego;
 
 	function __construct()
 	{
@@ -27,7 +27,7 @@ class Ahorcado{
 		$this->longitud=0;
 		$this->permitidos = " -abscdefghijklmnopqrstuvwxyz";
 		$this->letrasIngresadas = array();
-		$this->finDelJuego = false;
+		//$this->finDelJuego = false;
 	}
 	
 	function iniciarJuego()
@@ -113,7 +113,7 @@ class Ahorcado{
 				echo $this->ahorcado[$k] . ' ';
 			}
 			$mensajeRetorno = "Felicidades";
-			$this->finDelJuego = true;
+			//$this->finDelJuego = true;
 			return $mensajeRetorno;
 		}
 		
@@ -124,7 +124,7 @@ class Ahorcado{
 				echo $this->palabra[$k] . ' ';
 			}
 			$mensajeRetorno = "Perdiste";
-			$this->finDelJuego = true;
+			//$this->finDelJuego = true;
 			return $mensajeRetorno;
 		}
 		
@@ -180,10 +180,5 @@ class Ahorcado{
 	function getPalabra()
 	{
 		return $this->palabra;
-	}
-	  
-	function getfinDelJuego()
-	{
-		return $this->finDelJuego;
 	}	  
 }  

@@ -6,7 +6,7 @@ echo $juego->getPalabra();
 $palabraEscondida = $juego->palabraEscondida();
 echo $palabraEscondida; //Imprime 'ahorcado'
 echo "antes de verificar";
-$palabraEscondida = $juego->verificarLetra('a', $palabraEscondida); 
+$palabraEscondida = $juego->verificarLetra('o', $palabraEscondida); 
 echo $palabraEscondida; //Imprime 'ahorcado'
 echo $juego->verificarResultadoDeJuego($palabraEscondida);
 echo $juego->getIntentos();
