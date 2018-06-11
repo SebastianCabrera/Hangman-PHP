@@ -90,54 +90,61 @@ namespace JuegoAhorcado
             {
                 tiempo2 = DateTime.Now;
                 TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
+                
                 //Se guarda en un txt
-
-                //
+                
                 String line;
                 String todoElArchivo = "";
                 TimeSpan registros;
                 int j = 0;
-                StreamReader sr = new StreamReader("DatosTiempo.txt"); //Direccion correcta?
-                //Se deben guardar los tiempos en orden
-                //Pienso guardarlos como:
+                StreamReader sr = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+                                                                        + "\\DatosTiempo.txt"); 
+                //Se deben guardar los tiempos en orden de forma:
                 //nombre
                 //tiempo 
                 //(etc)
+
                 //Se lee la primera linea
                 line = sr.ReadLine();
 
-                //Se sigue leyendo hasta el final del archivo
-                while (line != null)
+                //La lista esta vacia
+                if (line == null)
                 {
-                    //Si es un tiempo
-                    if (j % 2 != 0)
-                    {
-                        //La linea se convierte en TimeSpan
-                        registros = TimeSpan.Parse(line);
-                        if (total >= registros)
-                        {
-                            todoElArchivo += nombreUsuario + "\n";
-                            todoElArchivo += registros + "\n";
-                        }
-                    }
-                    j++;
-                    todoElArchivo += line + "\n"; //Ocupa \n ?
-                    //Se lee la siguiente linea
-                    line = sr.ReadLine();
+                    sr.Close();
+                    StreamWriter sww = new StreamWriter(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+                                                                        + "\\DatosTiempo.txt");
+                    sww.WriteLine(nombreUsuario + "\n" + total + "\n");
+                    sww.Close();
+                    
                 }
-                sr.Close();
+                else
+                {
+                    //Se sigue leyendo hasta el final del archivo
+                    while (line != null)
+                    {
+                        //Si es un tiempo
+                        if (j % 2 != 0)
+                        {
+                            //La linea se convierte en TimeSpan
+                            registros = TimeSpan.Parse(line);
+                            if (total >= registros)
+                            {
+                                todoElArchivo += nombreUsuario + "\n";
+                                todoElArchivo += total.ToString("c") + "\n";
+                            }
+                        }
+                        j++;
+                        todoElArchivo += line + "\n";
+                        //Se lee la siguiente linea
+                        line = sr.ReadLine();
+                    }
+                    sr.Close();
 
-                StreamWriter sw = new StreamWriter("DatosTiempo.txt");
-                sw.WriteLine(todoElArchivo);
-                sw.Close();
-
-
-                //
-
-
-
-
-
+                    StreamWriter sw = new StreamWriter(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+                                                                            + "\\DatosTiempo.txt");
+                    sw.WriteLine(todoElArchivo);
+                    sw.Close();
+                }
             }
             switch (ahorcado.getIntentos())
             {
@@ -177,7 +184,7 @@ namespace JuegoAhorcado
 
         private void buttonNuevaPalabra_Click(object sender, EventArgs e)
         {
-            //InitializeComponent();
+            InitializeComponent();
             reinicio = new Inicio();
             reinicio.Show();
             this.Hide();
