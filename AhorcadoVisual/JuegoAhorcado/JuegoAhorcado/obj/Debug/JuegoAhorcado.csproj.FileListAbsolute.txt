@@ -8,3 +8,4 @@ C:\xampp\htdocs\Hangman-PHP\AhorcadoVisual\JuegoAhorcado\JuegoAhorcado\obj\Debug
 C:\xampp\htdocs\Hangman-PHP\AhorcadoVisual\JuegoAhorcado\JuegoAhorcado\obj\Debug\JuegoAhorcado.csproj.CoreCompileInputs.cache
 C:\xampp\htdocs\Hangman-PHP\AhorcadoVisual\JuegoAhorcado\JuegoAhorcado\obj\Debug\JuegoAhorcado.exe
 C:\xampp\htdocs\Hangman-PHP\AhorcadoVisual\JuegoAhorcado\JuegoAhorcado\obj\Debug\JuegoAhorcado.pdb
+C:\xampp\htdocs\Hangman-PHP\AhorcadoVisual\JuegoAhorcado\JuegoAhorcado\obj\Debug\JuegoAhorcado.Inicio.resources

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelPalabraEscondida = new System.Windows.Forms.Panel();
-            this.panelImagen = new System.Windows.Forms.Panel();
             this.labelPalabraEscondida = new System.Windows.Forms.Label();
+            this.panelImagen = new System.Windows.Forms.Panel();
             this.labelImage = new System.Windows.Forms.Label();
             this.panelPalabraEscondida.SuspendLayout();
             this.panelImagen.SuspendLayout();
@@ -44,14 +44,6 @@
             this.panelPalabraEscondida.Size = new System.Drawing.Size(200, 100);
             this.panelPalabraEscondida.TabIndex = 0;
             // 
-            // panelImagen
-            // 
-            this.panelImagen.Controls.Add(this.labelImage);
-            this.panelImagen.Location = new System.Drawing.Point(383, 438);
-            this.panelImagen.Name = "panelImagen";
-            this.panelImagen.Size = new System.Drawing.Size(200, 100);
-            this.panelImagen.TabIndex = 1;
-            // 
             // labelPalabraEscondida
             // 
             this.labelPalabraEscondida.AutoSize = true;
@@ -61,6 +53,14 @@
             this.labelPalabraEscondida.Size = new System.Drawing.Size(140, 20);
             this.labelPalabraEscondida.TabIndex = 0;
             this.labelPalabraEscondida.Text = "Palabra escondida";
+            // 
+            // panelImagen
+            // 
+            this.panelImagen.Controls.Add(this.labelImage);
+            this.panelImagen.Location = new System.Drawing.Point(383, 438);
+            this.panelImagen.Name = "panelImagen";
+            this.panelImagen.Size = new System.Drawing.Size(200, 100);
+            this.panelImagen.TabIndex = 1;
             // 
             // labelImage
             // 

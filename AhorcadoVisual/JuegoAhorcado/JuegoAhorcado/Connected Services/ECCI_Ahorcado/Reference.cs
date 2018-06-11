@@ -43,11 +43,11 @@ namespace JuegoAhorcado.ECCI_Ahorcado {
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#getIntentos", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string getIntentos();
+        int getIntentos();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#getIntentos", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> getIntentosAsync();
+        System.Threading.Tasks.Task<int> getIntentosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#verificarResultadoDeJuego", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -61,29 +61,29 @@ namespace JuegoAhorcado.ECCI_Ahorcado {
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#checkEmpty", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string checkEmpty();
+        bool checkEmpty();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#checkEmpty", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> checkEmptyAsync();
+        System.Threading.Tasks.Task<bool> checkEmptyAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#checkLetter", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string checkLetter();
+        bool checkLetter();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#checkLetter", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> checkLetterAsync();
+        System.Threading.Tasks.Task<bool> checkLetterAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#checkRepeated", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string checkRepeated();
+        bool checkRepeated();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#checkRepeated", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> checkRepeatedAsync();
+        System.Threading.Tasks.Task<bool> checkRepeatedAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#getPalabra", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -93,6 +93,15 @@ namespace JuegoAhorcado.ECCI_Ahorcado {
         [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#getPalabra", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<string> getPalabraAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#getletrasIngresadas", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        string getletrasIngresadas();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:ECCI_Ahorcado#Ahorcado#getletrasIngresadas", ReplyAction="*")]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        System.Threading.Tasks.Task<string> getletrasIngresadasAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -146,11 +155,11 @@ namespace JuegoAhorcado.ECCI_Ahorcado {
             return base.Channel.verificarLetraAsync(nombre, nombre2);
         }
         
-        public string getIntentos() {
+        public int getIntentos() {
             return base.Channel.getIntentos();
         }
         
-        public System.Threading.Tasks.Task<string> getIntentosAsync() {
+        public System.Threading.Tasks.Task<int> getIntentosAsync() {
             return base.Channel.getIntentosAsync();
         }
         
@@ -162,27 +171,27 @@ namespace JuegoAhorcado.ECCI_Ahorcado {
             return base.Channel.verificarResultadoDeJuegoAsync(nombre);
         }
         
-        public string checkEmpty() {
+        public bool checkEmpty() {
             return base.Channel.checkEmpty();
         }
         
-        public System.Threading.Tasks.Task<string> checkEmptyAsync() {
+        public System.Threading.Tasks.Task<bool> checkEmptyAsync() {
             return base.Channel.checkEmptyAsync();
         }
         
-        public string checkLetter() {
+        public bool checkLetter() {
             return base.Channel.checkLetter();
         }
         
-        public System.Threading.Tasks.Task<string> checkLetterAsync() {
+        public System.Threading.Tasks.Task<bool> checkLetterAsync() {
             return base.Channel.checkLetterAsync();
         }
         
-        public string checkRepeated() {
+        public bool checkRepeated() {
             return base.Channel.checkRepeated();
         }
         
-        public System.Threading.Tasks.Task<string> checkRepeatedAsync() {
+        public System.Threading.Tasks.Task<bool> checkRepeatedAsync() {
             return base.Channel.checkRepeatedAsync();
         }
         
@@ -192,6 +201,14 @@ namespace JuegoAhorcado.ECCI_Ahorcado {
         
         public System.Threading.Tasks.Task<string> getPalabraAsync() {
             return base.Channel.getPalabraAsync();
+        }
+        
+        public string getletrasIngresadas() {
+            return base.Channel.getletrasIngresadas();
+        }
+        
+        public System.Threading.Tasks.Task<string> getletrasIngresadasAsync() {
+            return base.Channel.getletrasIngresadasAsync();
         }
     }
 }

@@ -18,7 +18,7 @@
   </wsdl:message>
   <wsdl:message name="getIntentosIn" />
   <wsdl:message name="getIntentosOut">
-    <wsdl:part name="return" type="xsd:string" />
+    <wsdl:part name="return" type="xsd:int" />
   </wsdl:message>
   <wsdl:message name="verificarResultadoDeJuegoIn">
     <wsdl:part name="nombre" type="xsd:string" />
@@ -28,18 +28,22 @@
   </wsdl:message>
   <wsdl:message name="checkEmptyIn" />
   <wsdl:message name="checkEmptyOut">
-    <wsdl:part name="return" type="xsd:string" />
+    <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="checkLetterIn" />
   <wsdl:message name="checkLetterOut">
-    <wsdl:part name="return" type="xsd:string" />
+    <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="checkRepeatedIn" />
   <wsdl:message name="checkRepeatedOut">
-    <wsdl:part name="return" type="xsd:string" />
+    <wsdl:part name="return" type="xsd:boolean" />
   </wsdl:message>
   <wsdl:message name="getPalabraIn" />
   <wsdl:message name="getPalabraOut">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getletrasIngresadasIn" />
+  <wsdl:message name="getletrasIngresadasOut">
     <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
   <wsdl:portType name="ECCI_AhorcadoPort">
@@ -87,6 +91,11 @@
       <documentation>-</documentation>
       <wsdl:input message="tns:getPalabraIn" />
       <wsdl:output message="tns:getPalabraOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getletrasIngresadas">
+      <documentation>-</documentation>
+      <wsdl:input message="tns:getletrasIngresadasIn" />
+      <wsdl:output message="tns:getletrasIngresadasOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ECCI_AhorcadoBinding" type="tns:ECCI_AhorcadoPort">
@@ -165,6 +174,15 @@
     </wsdl:operation>
     <wsdl:operation name="getPalabra">
       <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#getPalabra" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getletrasIngresadas">
+      <soap:operation soapAction="urn:ECCI_Ahorcado#Ahorcado#getletrasIngresadas" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:ECCI_Ahorcado" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
