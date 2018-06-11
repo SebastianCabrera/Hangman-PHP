@@ -19,23 +19,34 @@ namespace JuegoAhorcado
         {
             InitializeComponent();
             String line;
+            labelInfoMejorTiempo.Text = "";
             try
             {
-                //Pass the file path and file name to the StreamReader constructor
-                StreamReader sr = new StreamReader("C:\\Sample.txt");
+                //El directorio del archivo de texto
+                StreamReader sr = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName 
+                                                                        + "\\DatosTiempo.txt");
 
-                //Read the first line of text
+                //Lee la primera linea
                 line = sr.ReadLine();
+                int i = 0;
 
-                //Continue to read until you reach end of file
-                while (line != null)
+                
+                //Sigue leyendo hasta el final del doc
+                //o hasta que se encuentren los 10 marcadores
+                while (line != null && i<=20)
                 {
-                    //write the lie to console window
-                    Console.WriteLine(line);
-                    //Read the next line
+                    if (i % 2 == 0)
+                    {
+                        labelInfoMejorTiempo.Text += line + " ";
+                    }
+                    else
+                    {
+                        labelInfoMejorTiempo.Text += line + "\n";
+                    }
+                    i++;
                     line = sr.ReadLine();
                 }
-
+                
                 //close the file
                 sr.Close();
                 Console.ReadLine();
@@ -48,6 +59,7 @@ namespace JuegoAhorcado
             {
                 Console.WriteLine("Executing finally block.");
             }
+            // labelInfoMejorTiempo.Text += 
         }
 
         private void buttonIniciar_Click(object sender, EventArgs e)

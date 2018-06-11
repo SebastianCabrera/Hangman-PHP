@@ -46,7 +46,7 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(942, 100);
+            this.panelTitulo.Size = new System.Drawing.Size(1172, 100);
             this.panelTitulo.TabIndex = 0;
             // 
             // labelTitulo
@@ -81,7 +81,7 @@
             // buttonIniciar
             // 
             this.buttonIniciar.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonIniciar.Location = new System.Drawing.Point(419, 397);
+            this.buttonIniciar.Location = new System.Drawing.Point(87, 566);
             this.buttonIniciar.Name = "buttonIniciar";
             this.buttonIniciar.Size = new System.Drawing.Size(111, 50);
             this.buttonIniciar.TabIndex = 3;
@@ -92,15 +92,15 @@
             // tableLayoutPanelMejorTiempo
             // 
             this.tableLayoutPanelMejorTiempo.ColumnCount = 1;
-            this.tableLayoutPanelMejorTiempo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelMejorTiempo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelMejorTiempo.Controls.Add(this.labelTituloMejorTiempo, 0, 0);
             this.tableLayoutPanelMejorTiempo.Controls.Add(this.labelInfoMejorTiempo, 0, 1);
             this.tableLayoutPanelMejorTiempo.Location = new System.Drawing.Point(561, 196);
             this.tableLayoutPanelMejorTiempo.Name = "tableLayoutPanelMejorTiempo";
             this.tableLayoutPanelMejorTiempo.RowCount = 2;
-            this.tableLayoutPanelMejorTiempo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelMejorTiempo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelMejorTiempo.Size = new System.Drawing.Size(312, 100);
+            this.tableLayoutPanelMejorTiempo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanelMejorTiempo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanelMejorTiempo.Size = new System.Drawing.Size(575, 440);
             this.tableLayoutPanelMejorTiempo.TabIndex = 4;
             // 
             // labelTituloMejorTiempo
@@ -116,9 +116,11 @@
             // labelInfoMejorTiempo
             // 
             this.labelInfoMejorTiempo.AutoSize = true;
-            this.labelInfoMejorTiempo.Location = new System.Drawing.Point(3, 50);
+            this.labelInfoMejorTiempo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelInfoMejorTiempo.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
+            this.labelInfoMejorTiempo.Location = new System.Drawing.Point(3, 88);
             this.labelInfoMejorTiempo.Name = "labelInfoMejorTiempo";
-            this.labelInfoMejorTiempo.Size = new System.Drawing.Size(51, 20);
+            this.labelInfoMejorTiempo.Size = new System.Drawing.Size(569, 352);
             this.labelInfoMejorTiempo.TabIndex = 1;
             this.labelInfoMejorTiempo.Text = "label1";
             // 
@@ -126,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 497);
+            this.ClientSize = new System.Drawing.Size(1172, 648);
             this.Controls.Add(this.tableLayoutPanelMejorTiempo);
             this.Controls.Add(this.buttonIniciar);
             this.Controls.Add(this.labelIndicacion);
