@@ -33,16 +33,9 @@ namespace JuegoAhorcado
                 
                 //Sigue leyendo hasta el final del doc
                 //o hasta que se encuentren los 10 marcadores
-                while (line != null && i<=20)
+                while (line != null && i<=9)
                 {
-                    if (i % 2 == 0)
-                    {
-                        labelInfoMejorTiempo.Text += line + " ";
-                    }
-                    else
-                    {
-                        labelInfoMejorTiempo.Text += line + "\n";
-                    }
+                    labelInfoMejorTiempo.Text += line + "\n";
                     i++;
                     line = sr.ReadLine();
                 }

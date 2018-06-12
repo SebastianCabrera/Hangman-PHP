@@ -30,7 +30,8 @@ namespace JuegoAhorcado
             //Inicializa los valores requeridos (constructor)
             ahorcado = new ECCI_Ahorcado.ECCI_AhorcadoPortClient();
             //Para ver la palabra que hay que averiguar, la cual se eligió al azar de la lista
-            labelPalabra.Text = ahorcado.getPalabra();
+            //labelPalabra.Text = ahorcado.getPalabra();
+            labelPalabra.Text = " ";
             escondida = ahorcado.palabraEscondida();
             //Se asigna la palabra escondida. Al principio deberia ser una sucesion de '_'
             labelEscondida.Text = "";
@@ -43,6 +44,18 @@ namespace JuegoAhorcado
             labelMensaje.Text = " - ";
             //Va a mostrar las letras que ya se hayan usado
             labelRepetidas.Text = " ";
+            //Inicializar imagenes
+            imageList1 = new ImageList();
+            imageList1.Images.Add(Properties.Resources._0);
+            imageList1.Images.Add(Properties.Resources._1);
+            imageList1.Images.Add(Properties.Resources._2);
+            imageList1.Images.Add(Properties.Resources._3);
+            imageList1.Images.Add(Properties.Resources._4);
+            imageList1.Images.Add(Properties.Resources._5);
+            imageList1.Images.Add(Properties.Resources._6);
+            imageList1.Images.Add(Properties.Resources._7);
+            imageList1.Images.Add(Properties.Resources._8);
+            imageList1.Images.Add(Properties.Resources._9);
             //Para mostrar las imagenes (aun no funciona)
             Image im = imageList1.Images[0];
             labelImagen.Image = im;
@@ -55,7 +68,7 @@ namespace JuegoAhorcado
             labelAviso.Visible = false;
             String antesVerif = escondida;
             escondida = ahorcado.verificarLetra(textBoxLetra.Text.ToString(), escondida);
-            
+
             //Actualiza la palabra escondida
             labelEscondida.Text = "";
             for (int i = 0; i < escondida.Length; i++)
@@ -69,7 +82,7 @@ namespace JuegoAhorcado
             {
                 labelRepetidas.Text += repetidas[i] + "-";
             }
-            String antesActualizar = labelIntentos.Text; 
+            String antesActualizar = labelIntentos.Text;
             //Actualiza el numero de intentos realizados
             labelIntentos.Text = "Lleva " + ahorcado.getIntentos() + "/9 intentos fallidos";
             //Si el caracter era invalido o repetido
@@ -90,62 +103,64 @@ namespace JuegoAhorcado
             {
                 tiempo2 = DateTime.Now;
                 TimeSpan total = new TimeSpan(tiempo2.Ticks - tiempo1.Ticks);
-                
+
+                labelPalabra.Text = nombreUsuario + "-" + total.ToString("c");
+
                 //Se guarda en un txt
-                
-                String line;
-                String todoElArchivo = "";
+
                 TimeSpan registros;
                 int j = 0;
-                StreamReader sr = new StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
-                                                                        + "\\DatosTiempo.txt"); 
-                //Se deben guardar los tiempos en orden de forma:
-                //nombre
-                //tiempo 
-                //(etc)
 
-                //Se lee la primera linea
-                line = sr.ReadLine();
 
+                /*
                 //La lista esta vacia
                 if (line == null)
                 {
-                    sr.Close();
-                    StreamWriter sww = new StreamWriter(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
-                                                                        + "\\DatosTiempo.txt");
-                    sww.WriteLine(nombreUsuario + "\n" + total + "\n");
-                    sww.Close();
                     
                 }
-                else
-                {
-                    //Se sigue leyendo hasta el final del archivo
-                    while (line != null)
-                    {
-                        //Si es un tiempo
-                        if (j % 2 != 0)
-                        {
-                            //La linea se convierte en TimeSpan
-                            registros = TimeSpan.Parse(line);
-                            if (total >= registros)
-                            {
-                                todoElArchivo += nombreUsuario + "\n";
-                                todoElArchivo += total.ToString("c") + "\n";
-                            }
-                        }
-                        j++;
-                        todoElArchivo += line + "\n";
-                        //Se lee la siguiente linea
-                        line = sr.ReadLine();
-                    }
-                    sr.Close();
+                */
 
-                    StreamWriter sw = new StreamWriter(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
-                                                                            + "\\DatosTiempo.txt");
-                    sw.WriteLine(todoElArchivo);
-                    sw.Close();
+                string line;
+                var sb = new StringBuilder();
+                System.IO.StreamReader file = new System.IO.StreamReader(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+                                                                + "\\DatosTiempo.txt");
+                Boolean fueGuardado = false;
+                String[] substrings;
+                while ((line = file.ReadLine()) != null && j <= 9)
+                {
+                    substrings = line.Split('-');
+                    registros = TimeSpan.Parse(substrings[1]);
+                    if (total <= registros && fueGuardado == false)
+                    {
+                        sb.AppendLine(nombreUsuario + "-" + total.ToString("c"));
+                        sb.AppendLine(line);
+                        fueGuardado = true;
+                    }
+                    else
+                    {
+                        sb.AppendLine(line);
+                    }
+                    j++;
                 }
-            }
+                if (fueGuardado == false && j <= 9)
+                {
+                    sb.AppendLine(nombreUsuario + "-" + total.ToString("c"));
+                }
+                file.Close();
+                using (System.IO.StreamWriter files = new System.IO.StreamWriter(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+                                                                    + "\\DatosTiempo.txt"))
+                {
+                    files.WriteLine(sb.ToString().Substring(0, sb.ToString().Length - 2));
+                }
+
+                /*
+                StreamWriter sw = new StreamWriter(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+                                                                        + "\\DatosTiempo.txt");
+                sw.WriteLine(todoElArchivo);
+                sw.Close();
+                */
+            } //fin de Felicidades
+
             switch (ahorcado.getIntentos())
             {
                 case 0:
@@ -178,9 +193,51 @@ namespace JuegoAhorcado
                 case 9:
                     labelImagen.Image = imageList1.Images[9];
                     break;
-
+                default:
+                    labelImagen.Image = imageList1.Images[9];
+                    break;
             }
         }
+            /*
+            switch (ahorcado.getIntentos())
+            {
+                case 0:
+                    labelImagen.Image = imageList1.Images[0];
+                    break;
+                case 1:
+                    labelImagen.Image = imageList1.Images[1];
+                    break;
+                case 2:
+                    labelImagen.Image = imageList1.Images[2];
+                    break;
+                case 3:
+                    labelImagen.Image = imageList1.Images[3];
+                    break;
+                case 4:
+                    labelImagen.Image = imageList1.Images[4];
+                    break;
+                case 5:
+                    labelImagen.Image = imageList1.Images[5];
+                    break;
+                case 6:
+                    labelImagen.Image = imageList1.Images[6];
+                    break;
+                case 7:
+                    labelImagen.Image = imageList1.Images[7];
+                    break;
+                case 8:
+                    labelImagen.Image = imageList1.Images[8];
+                    break;
+                case 9:
+                    labelImagen.Image = imageList1.Images[9];
+                    break;
+                default:
+                    labelImagen.Text = "No hay nada";
+                    break;
+
+            }
+            */
+           
 
         private void buttonNuevaPalabra_Click(object sender, EventArgs e)
         {
