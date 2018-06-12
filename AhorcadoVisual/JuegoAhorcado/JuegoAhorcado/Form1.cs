@@ -27,6 +27,7 @@ namespace JuegoAhorcado
             //Nombre que se guardaria en la tabla de tiempos
             nombreUsuario = nombre;
             labelAviso.Visible = false;
+            pictureBox1.Visible = true;
             //Inicializa los valores requeridos (constructor)
             ahorcado = new ECCI_Ahorcado.ECCI_AhorcadoPortClient();
             //Para ver la palabra que hay que averiguar, la cual se eligió al azar de la lista
@@ -56,9 +57,11 @@ namespace JuegoAhorcado
             imageList1.Images.Add(Properties.Resources._7);
             imageList1.Images.Add(Properties.Resources._8);
             imageList1.Images.Add(Properties.Resources._9);
+            imageList1.Images.Add(Properties.Resources.i3);
             //Para mostrar las imagenes (aun no funciona)
             Image im = imageList1.Images[0];
-            labelImagen.Image = im;
+           
+            pictureBox1.Image = imageList1.Images[0];
             //Para contar cuanto tiempo le duro completar la palabra
             tiempo1 = DateTime.Now;
         }
@@ -97,6 +100,8 @@ namespace JuegoAhorcado
             {
                 buttonVerificar.Enabled = false;
                 buttonVerificar.Text = "-";
+                repetidas = "";
+                
             }
             //Si se ganó el juego se toma el tiempo que le duró y se guarda
             if (labelMensaje.Text == "Felicidades")
@@ -164,37 +169,38 @@ namespace JuegoAhorcado
             switch (ahorcado.getIntentos())
             {
                 case 0:
-                    labelImagen.Image = imageList1.Images[0];
+                    pictureBox1.Image = imageList1.Images[0];
                     break;
                 case 1:
-                    labelImagen.Image = imageList1.Images[1];
+                    pictureBox1.Image = imageList1.Images[1];
                     break;
                 case 2:
-                    labelImagen.Image = imageList1.Images[2];
+                    pictureBox1.Image = imageList1.Images[2];
                     break;
                 case 3:
-                    labelImagen.Image = imageList1.Images[3];
+                   // pictureBox1.Image = imageList1.Images[3];
+                    pictureBox1.Image = imageList1.Images[10];
                     break;
                 case 4:
-                    labelImagen.Image = imageList1.Images[4];
+                    pictureBox1.Image = imageList1.Images[4];
                     break;
                 case 5:
-                    labelImagen.Image = imageList1.Images[5];
+                    pictureBox1.Image = imageList1.Images[5];
                     break;
                 case 6:
-                    labelImagen.Image = imageList1.Images[6];
+                    pictureBox1.Image = imageList1.Images[6];
                     break;
                 case 7:
-                    labelImagen.Image = imageList1.Images[7];
+                    pictureBox1.Image = imageList1.Images[7];
                     break;
                 case 8:
-                    labelImagen.Image = imageList1.Images[8];
+                    pictureBox1.Image = imageList1.Images[8];
                     break;
                 case 9:
-                    labelImagen.Image = imageList1.Images[9];
+                    pictureBox1.Image = imageList1.Images[9];
                     break;
                 default:
-                    labelImagen.Image = imageList1.Images[9];
+                    pictureBox1.Image = imageList1.Images[9];
                     break;
             }
         }
@@ -245,6 +251,21 @@ namespace JuegoAhorcado
             reinicio = new Inicio();
             reinicio.Show();
             this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelIntentos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelAviso_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

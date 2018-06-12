@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelEscondida = new System.Windows.Forms.Panel();
             this.labelEscondida = new System.Windows.Forms.Label();
             this.buttonVerificar = new System.Windows.Forms.Button();
-            this.panelImagen = new System.Windows.Forms.Panel();
-            this.labelImagen = new System.Windows.Forms.Label();
             this.textBoxLetra = new System.Windows.Forms.TextBox();
             this.labelMensaje = new System.Windows.Forms.Label();
             this.labelIntentos = new System.Windows.Forms.Label();
@@ -48,12 +45,13 @@
             this.labelRepetidas = new System.Windows.Forms.Label();
             this.labelTituloRepetidas = new System.Windows.Forms.Label();
             this.labelAviso = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelEscondida.SuspendLayout();
-            this.panelImagen.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelPalabra.SuspendLayout();
             this.panelRepetidas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEscondida
@@ -61,9 +59,10 @@
             this.panelEscondida.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panelEscondida.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelEscondida.Controls.Add(this.labelEscondida);
-            this.panelEscondida.Location = new System.Drawing.Point(316, 303);
+            this.panelEscondida.Location = new System.Drawing.Point(198, 323);
+            this.panelEscondida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelEscondida.Name = "panelEscondida";
-            this.panelEscondida.Size = new System.Drawing.Size(359, 100);
+            this.panelEscondida.Size = new System.Drawing.Size(240, 66);
             this.panelEscondida.TabIndex = 0;
             // 
             // labelEscondida
@@ -72,8 +71,9 @@
             this.labelEscondida.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelEscondida.Font = new System.Drawing.Font("Perpetua Titling MT", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEscondida.Location = new System.Drawing.Point(0, 0);
+            this.labelEscondida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEscondida.Name = "labelEscondida";
-            this.labelEscondida.Size = new System.Drawing.Size(220, 38);
+            this.labelEscondida.Size = new System.Drawing.Size(152, 27);
             this.labelEscondida.TabIndex = 0;
             this.labelEscondida.Text = "escondida";
             this.labelEscondida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,39 +81,22 @@
             // buttonVerificar
             // 
             this.buttonVerificar.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonVerificar.Location = new System.Drawing.Point(435, 492);
+            this.buttonVerificar.Location = new System.Drawing.Point(279, 435);
+            this.buttonVerificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonVerificar.Name = "buttonVerificar";
-            this.buttonVerificar.Size = new System.Drawing.Size(138, 41);
+            this.buttonVerificar.Size = new System.Drawing.Size(92, 27);
             this.buttonVerificar.TabIndex = 1;
             this.buttonVerificar.Text = "Verificar";
             this.buttonVerificar.UseVisualStyleBackColor = true;
             this.buttonVerificar.Click += new System.EventHandler(this.buttonVerificar_Click);
             // 
-            // panelImagen
-            // 
-            this.panelImagen.Controls.Add(this.labelImagen);
-            this.panelImagen.Location = new System.Drawing.Point(299, 24);
-            this.panelImagen.Name = "panelImagen";
-            this.panelImagen.Size = new System.Drawing.Size(376, 256);
-            this.panelImagen.TabIndex = 2;
-            // 
-            // labelImagen
-            // 
-            this.labelImagen.AutoSize = true;
-            this.labelImagen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelImagen.Image = ((System.Drawing.Image)(resources.GetObject("labelImagen.Image")));
-            this.labelImagen.Location = new System.Drawing.Point(0, 0);
-            this.labelImagen.Name = "labelImagen";
-            this.labelImagen.Size = new System.Drawing.Size(51, 20);
-            this.labelImagen.TabIndex = 0;
-            this.labelImagen.Text = "label1";
-            // 
             // textBoxLetra
             // 
             this.textBoxLetra.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
-            this.textBoxLetra.Location = new System.Drawing.Point(455, 435);
+            this.textBoxLetra.Location = new System.Drawing.Point(303, 283);
+            this.textBoxLetra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxLetra.Name = "textBoxLetra";
-            this.textBoxLetra.Size = new System.Drawing.Size(100, 32);
+            this.textBoxLetra.Size = new System.Drawing.Size(68, 24);
             this.textBoxLetra.TabIndex = 4;
             // 
             // labelMensaje
@@ -122,8 +105,9 @@
             this.labelMensaje.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelMensaje.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
             this.labelMensaje.Location = new System.Drawing.Point(0, 0);
+            this.labelMensaje.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMensaje.Name = "labelMensaje";
-            this.labelMensaje.Size = new System.Drawing.Size(105, 24);
+            this.labelMensaje.Size = new System.Drawing.Size(74, 17);
             this.labelMensaje.TabIndex = 5;
             this.labelMensaje.Text = "Mensaje";
             // 
@@ -133,33 +117,38 @@
             this.labelIntentos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelIntentos.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
             this.labelIntentos.Location = new System.Drawing.Point(0, 0);
+            this.labelIntentos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIntentos.Name = "labelIntentos";
-            this.labelIntentos.Size = new System.Drawing.Size(183, 24);
+            this.labelIntentos.Size = new System.Drawing.Size(129, 17);
             this.labelIntentos.TabIndex = 6;
             this.labelIntentos.Text = "labelIntentos";
+            this.labelIntentos.Click += new System.EventHandler(this.labelIntentos_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.labelMensaje);
-            this.panel1.Location = new System.Drawing.Point(86, 549);
+            this.panel1.Location = new System.Drawing.Point(27, 440);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 37);
+            this.panel1.Size = new System.Drawing.Size(151, 24);
             this.panel1.TabIndex = 7;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.labelIntentos);
-            this.panel2.Location = new System.Drawing.Point(696, 550);
+            this.panel2.Location = new System.Drawing.Point(480, 441);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(212, 36);
+            this.panel2.Size = new System.Drawing.Size(141, 23);
             this.panel2.TabIndex = 8;
             // 
             // panelPalabra
             // 
             this.panelPalabra.Controls.Add(this.labelPalabra);
-            this.panelPalabra.Location = new System.Drawing.Point(40, 224);
+            this.panelPalabra.Location = new System.Drawing.Point(27, 146);
+            this.panelPalabra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelPalabra.Name = "panelPalabra";
-            this.panelPalabra.Size = new System.Drawing.Size(200, 100);
+            this.panelPalabra.Size = new System.Drawing.Size(133, 65);
             this.panelPalabra.TabIndex = 9;
             // 
             // labelPalabra
@@ -168,31 +157,22 @@
             this.labelPalabra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelPalabra.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
             this.labelPalabra.Location = new System.Drawing.Point(0, 0);
+            this.labelPalabra.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPalabra.Name = "labelPalabra";
-            this.labelPalabra.Size = new System.Drawing.Size(186, 24);
+            this.labelPalabra.Size = new System.Drawing.Size(129, 17);
             this.labelPalabra.TabIndex = 0;
             this.labelPalabra.Text = " labelPalabra";
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "0.png");
-            this.imageList1.Images.SetKeyName(1, "1.png");
-            this.imageList1.Images.SetKeyName(2, "2.png");
-            this.imageList1.Images.SetKeyName(3, "3.png");
-            this.imageList1.Images.SetKeyName(4, "4.png");
-            this.imageList1.Images.SetKeyName(5, "5.png");
-            this.imageList1.Images.SetKeyName(6, "6.png");
-            this.imageList1.Images.SetKeyName(7, "7.png");
-            this.imageList1.Images.SetKeyName(8, "8.png");
-            this.imageList1.Images.SetKeyName(9, "9.png");
             // 
             // buttonNuevaPalabra
             // 
-            this.buttonNuevaPalabra.Location = new System.Drawing.Point(44, 24);
+            this.buttonNuevaPalabra.Location = new System.Drawing.Point(29, 16);
+            this.buttonNuevaPalabra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonNuevaPalabra.Name = "buttonNuevaPalabra";
-            this.buttonNuevaPalabra.Size = new System.Drawing.Size(159, 37);
+            this.buttonNuevaPalabra.Size = new System.Drawing.Size(106, 24);
             this.buttonNuevaPalabra.TabIndex = 10;
             this.buttonNuevaPalabra.Text = "Nueva palabra";
             this.buttonNuevaPalabra.UseVisualStyleBackColor = true;
@@ -201,9 +181,10 @@
             // panelRepetidas
             // 
             this.panelRepetidas.Controls.Add(this.labelRepetidas);
-            this.panelRepetidas.Location = new System.Drawing.Point(708, 303);
+            this.panelRepetidas.Location = new System.Drawing.Point(502, 147);
+            this.panelRepetidas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelRepetidas.Name = "panelRepetidas";
-            this.panelRepetidas.Size = new System.Drawing.Size(308, 100);
+            this.panelRepetidas.Size = new System.Drawing.Size(205, 65);
             this.panelRepetidas.TabIndex = 11;
             // 
             // labelRepetidas
@@ -212,8 +193,9 @@
             this.labelRepetidas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelRepetidas.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRepetidas.Location = new System.Drawing.Point(0, 0);
+            this.labelRepetidas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRepetidas.Name = "labelRepetidas";
-            this.labelRepetidas.Size = new System.Drawing.Size(83, 24);
+            this.labelRepetidas.Size = new System.Drawing.Size(58, 17);
             this.labelRepetidas.TabIndex = 0;
             this.labelRepetidas.Text = "label1";
             // 
@@ -221,28 +203,45 @@
             // 
             this.labelTituloRepetidas.AutoSize = true;
             this.labelTituloRepetidas.Font = new System.Drawing.Font("Perpetua Titling MT", 16F, System.Drawing.FontStyle.Bold);
-            this.labelTituloRepetidas.Location = new System.Drawing.Point(712, 264);
+            this.labelTituloRepetidas.Location = new System.Drawing.Point(497, 118);
+            this.labelTituloRepetidas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTituloRepetidas.Name = "labelTituloRepetidas";
-            this.labelTituloRepetidas.Size = new System.Drawing.Size(298, 38);
+            this.labelTituloRepetidas.Size = new System.Drawing.Size(204, 27);
             this.labelTituloRepetidas.TabIndex = 12;
             this.labelTituloRepetidas.Text = "Letras usadas:";
             // 
             // labelAviso
             // 
             this.labelAviso.AutoSize = true;
-            this.labelAviso.Font = new System.Drawing.Font("Perpetua Titling MT", 10F, System.Drawing.FontStyle.Bold);
-            this.labelAviso.Location = new System.Drawing.Point(577, 437);
+            this.labelAviso.Font = new System.Drawing.Font("Perpetua Titling MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAviso.Location = new System.Drawing.Point(462, 226);
+            this.labelAviso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAviso.Name = "labelAviso";
-            this.labelAviso.Size = new System.Drawing.Size(439, 24);
+            this.labelAviso.Size = new System.Drawing.Size(245, 13);
             this.labelAviso.TabIndex = 13;
             this.labelAviso.Text = "El caracter es invalido o repetido";
             this.labelAviso.Visible = false;
+            this.labelAviso.Click += new System.EventHandler(this.labelAviso_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JuegoAhorcado.Properties.Resources.i3;
+            this.pictureBox1.InitialImage = global::JuegoAhorcado.Properties.Resources._0;
+            this.pictureBox1.Location = new System.Drawing.Point(213, 85);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(211, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 622);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(738, 497);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelAviso);
             this.Controls.Add(this.labelTituloRepetidas);
             this.Controls.Add(this.panelRepetidas);
@@ -251,15 +250,13 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBoxLetra);
-            this.Controls.Add(this.panelImagen);
             this.Controls.Add(this.buttonVerificar);
             this.Controls.Add(this.panelEscondida);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelEscondida.ResumeLayout(false);
             this.panelEscondida.PerformLayout();
-            this.panelImagen.ResumeLayout(false);
-            this.panelImagen.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -268,6 +265,7 @@
             this.panelPalabra.PerformLayout();
             this.panelRepetidas.ResumeLayout(false);
             this.panelRepetidas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,7 +276,6 @@
         private System.Windows.Forms.Panel panelEscondida;
         private System.Windows.Forms.Label labelEscondida;
         private System.Windows.Forms.Button buttonVerificar;
-        private System.Windows.Forms.Panel panelImagen;
         private System.Windows.Forms.TextBox textBoxLetra;
         private System.Windows.Forms.Label labelMensaje;
         private System.Windows.Forms.Label labelIntentos;
@@ -292,7 +289,7 @@
         private System.Windows.Forms.Label labelRepetidas;
         private System.Windows.Forms.Label labelTituloRepetidas;
         private System.Windows.Forms.Label labelAviso;
-        private System.Windows.Forms.Label labelImagen;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
